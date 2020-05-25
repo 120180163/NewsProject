@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('userprofiel/{name}/{id}', function($name,$id){
+    return view('userprofiel', compact('name', 'id'));
+});
+
+Route::get('user/{id}','User@get_user');
+
+Route::get('test/', 'User@test');
