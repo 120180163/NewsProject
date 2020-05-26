@@ -12,7 +12,7 @@ class User extends Controller
 }
     public function test(){
         $abc = "khaled";
-        $arr = ['usernaem'=>'khaled', 'password'=>123];
+        $arr = ['usernaem'=>'khaled', 'password'=>123, 'posts'=>['post','post2','post3']];
         return view('test', compact('abc', 'arr'));
     }
 }

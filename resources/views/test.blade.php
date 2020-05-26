@@ -18,7 +18,13 @@
 
 {{--       @endif--}}
 {{--@endforeach--}}
+{{$arr['username']}}
+<hr>
+{{$arr['password']}}
+<hr>
 
-
+@foreach($arr['posts'] as $v )
+    <h1>{{$v}}</h1>
+    @endforeach
 </body>
 </html>
