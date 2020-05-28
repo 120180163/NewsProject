@@ -1,6 +1,14 @@
-
-
-<table border="1px">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>News - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+</head>
+<body>
+{{--<img src="{{asset("img/img1.jpg")}}">--}}
+<table style="border: 1px">
     <tr>
         <th>id</th>
         <th>title</th>
@@ -24,19 +32,19 @@
 </table>
 
 
-<p>
+<div>
 @if($errors->any())
     <ul>
         @foreach($errors->all() as $error)
             <li>{{$error}}</li>
 
-
         @endforeach
     </ul>
 
 @endif;
+</div>
 
-</p>
+<div>
 <form method="post" action="{{route('add_news')}}">
 
     <input type="hidden" value=" {{csrf_token()}}" name="_token">
@@ -52,24 +60,24 @@
     </select>
     <input type="submit" value="add new users">
 </form>
-
+</div>
 
 
 @foreach($all_news as $v)
 
-    <h1>{{$v->id}}|<a style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; color: #0b0b0b" ; "  href="{{route(''news'',$v->id)}}">{{$v->title}}</a></h1>
+    <h1>{{$v->id}}|<a href="{{route("news",$v->id)}}">{{$v->title}}</a></h1>
 
     <h3>{{$v->disc}}</h3>
 
-    <a style=background-color: "#34ce57;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;color: #0b0b0b ; " href="{{route('delete_news',$v->id)}}">Delete</a>
+    <a href="{{route('delete_news',$v->id)}}">Delete</a>
     <br>
 
-    <a style="background-color: #9e9e9e; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #0b0b0b; " href="{{route('soft_delete_news',$v->id)}}">soft delete</a>
-
-
-    <hr>
+    <a href="{{route('soft_delete_news',$v->id)}}">soft delete</a>
+        <hr>
 @endforeach
 
 
-<p>{!! $all_news->render() !!}</p>
+{{--<p>{!! $all_news->render() !!}</p>--}}
 
+</body>
+</html>
